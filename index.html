@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+
+    <h1>Bem-vindo!</h1>
+
+    <p>Digite seu Nome:</p>
+
+    <input type="text" id="name" name="name" placeholder="Digite seu nome">
+    <input type="submit" value="enviar" id="btn">
+
+    <div id="mensagem"></div>
+
+    <script>
+        const inputBotao = document.getElementById("btn"); 
+        const inputNome = document.getElementById("name"); 
+        const mensagem = document.getElementById("mensagem");
+
+        inputBotao.addEventListener('click', function() {
+            const nome = inputNome.value.trim();
+            
+            if (nome === '') {
+                mensagem.textContent = 'Por favor, insira seu nome.'; 
+                mensagem.className = 'erro';
+            } 
+            else {
+                mensagem.textContent = Olá, ${nome}! Seja bem-vindo(a)!; 
+                mensagem.className = 'sucesso';
+            }
+        });
+    </script>
+</body>
+</html>
