@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Lista</title>
+</head>
+<body>
+  <h1>Gerador de Lista</h1>
+
+  <p>Digite um número e clique em "Gerar lista":</p>
+
+  <input type="number" id="quantidade" placeholder="Quantidade de itens" min="1">
+  <input type="button" value="Gerar lista" id="btn">
+
+  <div id="mensagem"></div>
+
+  <script>
+    const inputBotao = document.getElementById("btn");
+    const inputNumber = document.getElementById("quantidade");
+    const mensagemDiv = document.getElementById("mensagem");
+
+    inputBotao.addEventListener('click', function() {
+      const num = parseInt(inputNumber.value);
+
+      if (!num || num < 1) {
+        mensagemDiv.innerHTML = '<p class="erro">Por favor, insira um número válido.</p>';
+        return;
+      }
+
+      let lista = "";
+      for (let i = 1; i <= num; i++) {
+        lista += `<li>Ilusion ${i}</li>`;
+      }
+
+      mensagemDiv.innerHTML = `<ul>${lista}</ul>`;
+    });
+  </script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+      margin: 0;
+      padding: 40px;
+    }
+
+    h1{
+        color: #333;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-right: 8px;
+    }
+
+    input[type="button"] {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+
+    ul {
+      text-align: left;
+      display: inline-block;
+      margin-top: 10px;
+      padding-left: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+     #mensagem {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .erro {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</body>
+</html>
